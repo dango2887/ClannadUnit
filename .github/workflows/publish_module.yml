@@ -20,10 +20,7 @@ jobs:
           prev_version_2=$(grep "VERSION_NAME=" gradle.properties | sed -E 's/VERSION_NAME=[0-9]+\.([0-9]+)\.[0-9]+/\1/')
           prev_version_3=$(grep "VERSION_NAME=" gradle.properties | sed -E 's/VERSION_NAME=[0-9]+\.[0-9]+\.([0-9]+)/\1/')
           formatted_version=$(printf "%s" "$prev_version_1.$prev_version_2.$prev_version_3")
-          echo $prev_version_1
-          echo $prev_version_2
-          echo $prev_version_3
-          echo $formatted_version
+          echo "V$formatted_version"
           echo "publish_version=$formatted_version" >> $GITHUB_OUTPUT
       - name: Send
         uses: zcong1993/actions-ding@master
