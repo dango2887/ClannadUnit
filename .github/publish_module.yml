@@ -1,0 +1,17 @@
+name: 模块发布
+
+on:
+  push:
+    paths:
+      - 'gradle.properties'
+    branches:
+      - master
+
+jobs:
+  generate-props:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.set_version.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
