@@ -1,7 +1,7 @@
 package com.dango.clannad
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.dango.clannad.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {

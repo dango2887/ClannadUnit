@@ -33,9 +33,7 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.appcompat.v7)
-    implementation(libs.constraint.layout)
-    implementation(libs.livedata)
-    implementation(libs.viewmodel)
+    implementation(project(":lib:kit"))
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
 }

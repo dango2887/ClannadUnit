@@ -3,24 +3,17 @@ agp = "8.4.1"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 appcompat = "1.7.0"
-appcompatV7 = "28.0.0"
-constraintLayout = "2.0.4"
-livedata = "1.1.1"
-viewmodel = "1.1.1"
 
 gradleMavenPublishPlugin = "0.28.0"
 dokkaGradlePlugin = "1.8.10"
+constraintlayout = "2.1.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-appcompat-v7 = { group = "com.android.support", name = "appcompat-v7", version.ref = "appcompatV7" }
-constraint-layout = { group = "com.android.support.constraint", name = "constraint-layout", version.ref = "constraintLayout" }
-livedata = { group = "android.arch.lifecycle", name = "livedata", version.ref = "livedata" }
-viewmodel = { group = "android.arch.lifecycle", name = "viewmodel", version.ref = "viewmodel" }
-
 gradle-maven-publish-plugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "gradleMavenPublishPlugin" }
 dokka-gradle-plugin = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokkaGradlePlugin" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
