@@ -20,5 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ClannadUnit"
-include(":app")
- 
+include(":clannad")
+include(":lib:kit")
