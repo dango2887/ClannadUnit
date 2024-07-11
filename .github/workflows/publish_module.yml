@@ -8,46 +8,9 @@ on:
       - master
 
 jobs:
-  generate-props:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Get Publish Version
-        id: PUBLISH-VERSION
-        run: |
-          prev_version_1=$(grep "VERSION_NAME=" gradle.properties | sed -E 's/VERSION_NAME=([0-9]+)\.[0-9]+\.[0-9]+/\1/')
-          prev_version_2=$(grep "VERSION_NAME=" gradle.properties | sed -E 's/VERSION_NAME=[0-9]+\.([0-9]+)\.[0-9]+/\1/')
-          prev_version_3=$(grep "VERSION_NAME=" gradle.properties | sed -E 's/VERSION_NAME=[0-9]+\.[0-9]+\.([0-9]+)/\1/')
-          formatted_version=$(printf "%s" "$prev_version_1.$prev_version_2.$prev_version_3")
-          echo "V$formatted_version"
-          echo "publish_version=$formatted_version" >> $GITHUB_OUTPUT
-      - name: Send start message
-        uses: zcong1993/actions-ding@master
-        with:
-          dingToken: 814b2467f4a2cd354fe6317e8bf6d2bd544f1c60bb4f1a6971d09f573306a7c6
-          body: |
-            {
-              "msgtype": "markdown",
-              "markdown": {
-                "title": "开始打包",
-                "text": "ClannadUnit 开始打包 V${{ steps.PUBLISH-VERSION.outputs.publish_version }}"
-              }
-            }
-      - name: Build and Publish
-        uses: dango-cl/ReusableWorkflows/.github/workflows/publish_maven_central_v2.yml@master
-        with:
-          module_paths_v2: '{"module": [":lib:kit"]}'
-          secrets: inherit
-      - name: Send end message
-        uses: zcong1993/actions-ding@master
-        with:
-          dingToken: 814b2467f4a2cd354fe6317e8bf6d2bd544f1c60bb4f1a6971d09f573306a7c6
-          body: |
-            {
-              "msgtype": "markdown",
-              "markdown": {
-                "title": "打包完成(Mock)",
-                "text": "ClannadUnit 打包完成(Mock) V${{ steps.PUBLISH-VERSION.outputs.publish_version }}"
-              }
-            }
+  build:
+    uses: dango-cl/ReusableWorkflows/.github/workflows/publish_maven_central_v2.yml@master
+    with:
+      #      module_paths_v2: '{"module": [":tap:core"]}'
+      module_paths_v2: '{"module": [":dLib:widget", ":dLib:kit", ":tap:core"]}'
+    secrets: inherit
