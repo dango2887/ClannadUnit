@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "ClannadUnit"
 include(":clannad")
 include(":lib:kit")
+include(":lib:core")
