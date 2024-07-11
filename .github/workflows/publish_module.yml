@@ -34,7 +34,7 @@ jobs:
                 "text": "ClannadUnit 开始打包 V${{ steps.PUBLISH-VERSION.outputs.publish_version }}"
               }
             }
-      - name: build
+      - name: Build and Publish
         uses: dango-cl/ReusableWorkflows/.github/workflows/publish_maven_central_v2.yml@master
         with:
           module_paths_v2: '{"module": [":lib:kit"]}'
