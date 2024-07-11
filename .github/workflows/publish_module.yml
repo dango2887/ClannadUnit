@@ -34,6 +34,11 @@ jobs:
                 "text": "ClannadUnit 开始打包 V${{ steps.PUBLISH-VERSION.outputs.publish_version }}"
               }
             }
+      - name: build
+        uses: dango-cl/ReusableWorkflows/.github/workflows/publish_maven_central_v2.yml@master
+        with:
+          module_paths_v2: '{"module": [":lib:kit"]}'
+          secrets: inherit
       - name: Send end message
         uses: zcong1993/actions-ding@master
         with:
