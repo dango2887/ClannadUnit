@@ -36,4 +36,8 @@ dependencies {
     implementation(project(":lib:kit"))
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
+
+    implementation("com.google.android.gms:play-services-games-v2:20.1.0")
+    implementation("com.google.android.gms:play-services-location:21.2.0")
+
 }
